@@ -1,0 +1,38 @@
+<annotation>
+	<folder>250</folder>
+	<filename>austin10_500.tif</filename>
+	<path>C:\Users\ianow\Documents\Master Vision artificial\Segundo cuatrimestre\Aplicaciones industriales y comerciales\AIVA_2021_Tree_Detection_Ian_Adrian\images\250\austin10_500.tif</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>250</width>
+		<height>250</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>tree</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>176</xmin>
+			<ymin>174</ymin>
+			<xmax>218</xmax>
+			<ymax>214</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>tree</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>162</xmin>
+			<ymin>229</ymin>
+			<xmax>199</xmax>
+			<ymax>250</ymax>
+		</bndbox>
+	</object>
+</annotation>
