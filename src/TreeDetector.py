@@ -4,3 +4,6 @@ class TreeDetector:
 
     def recognize(self):
         return "done"
+
+    def slide(self):
+        return 400

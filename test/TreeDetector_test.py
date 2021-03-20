@@ -9,7 +9,13 @@ class TestTreeDetector(unittest.TestCase):
         img = cv.imread("images/peticion/austin14750_1250.tif")
         tree_detector = TreeDetector(img)
         result = tree_detector.recognize()
-        self.assertEquals(result, "done")
+        self.assertEqual(result, "done")
+
+    def test_Slide_images(self):
+        img = cv.imread("images/5000/austin1.tif")
+        tree_detector = TreeDetector(img)
+        result = tree_detector.slide()
+        self.assertEqual(result, 400)
 
 
 if __name__ == "__main__":
