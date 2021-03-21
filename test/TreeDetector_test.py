@@ -5,13 +5,13 @@ from src.TreeDetector import TreeDetector
 
 
 class TestTreeDetector(unittest.TestCase):
-    def test_Recognize(self):
+    def test_recognize(self):
         img = cv.imread("images/peticion/austin14750_1250.tif")
         tree_detector = TreeDetector(img)
         result = tree_detector.recognize()
         self.assertEqual(result, "done")
 
-    def test_Slide_images(self):
+    def test_slide_images(self):
         img = cv.imread("images/5000/austin1.tif")
         tree_detector = TreeDetector(img)
         result = tree_detector.slide()
