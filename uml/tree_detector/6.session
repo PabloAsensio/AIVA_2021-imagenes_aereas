@@ -1,0 +1,16 @@
+window_sizes 1718 1368 445 1268 1216 104
+
+diagrams
+  active  classdiagram_ref 128006 // class diagram
+    1268 1216 100 A4 0 0
+end
+show_stereotypes
+selected operation_ref 128518 // geo_localize
+open
+  class_ref 128006 // TreeDetector
+  class_ref 128134 // Aplication
+  class_ref 128262 // Tree
+  class_ref 128390 // TreePainter
+  class_ref 128518 // GeoLocalizator
+end
+end
