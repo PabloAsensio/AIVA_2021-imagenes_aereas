@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ~~~
 7. Descargar el modelo entrenado del siguiente enlace y guardarlo dentro de la carpeta './inference'
 ~~~
-poner link a OneDrive
+[Enlace a model.h5] (https://urjc-my.sharepoint.com/:u:/g/personal/v_lomas_2020_alumnos_urjc_es/EacpLrcXskdKiNGxebzT-a0BuwnjOVyTQ0o0iaKJOjZzFQ?e=LYQbvI) 
 ~~~
 8. En este punto ya se tienen todas las librerías necesarias para la ejecución del archivo 'deteccion.py', que es el encargado de realizar la detección de árboles. Como argumentos de entrada se le pasa la ruta de la carpeta donde estén guardadas las imágenes de test y la ruta de la carpeta de salida donde se guardarán las imágenes con la detección realizada.
 ~~~
