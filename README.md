@@ -4,12 +4,12 @@ Tree Detector es un sistema de visión artificial que resolverá el problema de 
 
 # Instalación
 El equipo donde se quiera ejecutar el programa debe contar con:
-* Python 3.7
+* Python 3.7.x
 * CUDA 10.0
 * cuDNN 7.4
 
 Los pasos a seguir para la ejecución del programa son los siguientes:
-1. Clonar este repositorio
+1. Clonar este repositorio.
 ~~~
 git clone https://github.com/pasensio97/AIVA_2021-imagenes_aereas
 ~~~
