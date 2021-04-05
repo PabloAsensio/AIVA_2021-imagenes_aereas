@@ -1,7 +1,7 @@
 format 224
 "tree_detector"
-  revision 2
-  modified_by 6 "pablo"
+  revision 3
+  modified_by 3 "Vanesa"
 
 
   
@@ -426,6 +426,167 @@ ${docstring}${members}
 ${docstring}${body}
 "
 	
+      end
+    end
+
+    activity 128003 "TreeDetection"
+      activitydiagram 128003 "Diagram"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A4
+      end
+
+      activitynode 128003 initial_node ""
+	flow 128003 "<flow>"
+	  on activityaction_ref 128003 // activity action Seleccionar GPU
+	end
+      end
+
+      activitynode 128131 activity_final ""
+      end
+
+      activityaction 128003 "Seleccionar GPU"
+	opaque_action
+	flow 130307 "<flow>"
+	  on activityaction_ref 128131 // activity action Cargar el modelo
+	end
+      end
+
+      activityobject 128003 "hola"
+	 explicit_type ""
+	unordered 
+      end
+
+      activityaction 128131 "Cargar el modelo"
+	opaque_action
+	flow 130435 "<flow>"
+	  on activityaction_ref 128259 // activity action Cargar el modelo preentrenado (ResNet50)
+	end
+      end
+
+      activityaction 128259 "Cargar el modelo preentrenado (ResNet50)"
+	opaque_action
+	flow 130563 "<flow>"
+	  on activityaction_ref 128387 // activity action Cargar imagen
+	end
+
+	flow 130691 "<flow>"
+	  on activityaction_ref 128387 // activity action Cargar imagen
+	end
+      end
+
+      activityaction 128387 "Cargar imagen"
+	opaque_action
+	flow 130819 "<flow>"
+	  on activityaction_ref 128515 // activity action Preprocesar la imagen
+	end
+
+	flow 131075 "<flow>"
+	  on activityaction_ref 128515 // activity action Preprocesar la imagen
+	end
+      end
+
+      activityaction 128515 "Preprocesar la imagen"
+	opaque_action
+	flow 128387 "<flow>"
+	  on activityaction_ref 128643 // activity action Realizar la detección
+	end
+      end
+
+      activityaction 128643 "Realizar la detección"
+	opaque_action
+	flow 128131 "si score > 0.5"
+	  on activitynode_ref 128259 // merge
+	end
+
+	flow 128515 "<flow>"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	end
+      end
+
+      activitynode 128259 merge ""
+	flow 128259 "Sí"
+	  on activityaction_ref 128771 // activity action Dibujar Bounding Box
+	end
+      end
+
+      activitynode 128387 fork ""
+      end
+
+      activityobject 128131 "Dibujar bounding box"
+	 explicit_type ""
+	unordered 
+      end
+
+      activityaction 128771 "Dibujar Bounding Box"
+	opaque_action
+	flow 128771 "<flow>"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	end
+
+	flow 130947 "<flow>"
+	  on activityaction_ref 129027 // activity action Guardar la imagen con las bounding boxes dibujadas
+	end
+      end
+
+      activityaction 128899 "Recorrer Bounding Boxes"
+	opaque_action
+	flow 128643 "Si score > 0.5"
+	  on activitynode_ref 128259 // merge
+	end
+
+	flow 128899 "Si score > 0.5"
+	  on activitynode_ref 128515 // decision
+	end
+
+	flow 129283 "Si score > 0.5"
+	  on activitynode_ref 128515 // decision
+	end
+      end
+
+      activitynode 128515 decision ""
+	flow 129027 "Sí"
+	  on activityaction_ref 128771 // activity action Dibujar Bounding Box
+	end
+
+	flow 129155 "No"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	end
+
+	flow 129411 "Sí"
+	  on activityaction_ref 128771 // activity action Dibujar Bounding Box
+	end
+
+	flow 129539 "<flow>"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	end
+
+	flow 129667 "<flow>"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	end
+
+	flow 129795 "No"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	end
+      end
+
+      activityaction 129027 "Guardar la imagen con las bounding boxes dibujadas"
+	opaque_action
+	flow 129923 "<flow>"
+	  on activitynode_ref 128131 // activity_final
+	end
+
+	flow 130051 "<flow>"
+	  on activitynode_ref 128131 // activity_final
+	end
+
+	flow 130179 "<flow>"
+	  on activitynode_ref 128131 // activity_final
+	end
+
+	flow 131203 "<flow>"
+	  on activitynode_ref 128131 // activity_final
+	end
       end
     end
   end
