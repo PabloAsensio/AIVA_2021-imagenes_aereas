@@ -141,3 +141,6 @@ Buildings/
 
 # VSCode
 .vscode/
+
+# Ignore NN Models
+*.h5
