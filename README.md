@@ -23,11 +23,19 @@ virtualenv venv
 ~~~
 venv\Scripts\activate
 ~~~
-5. Una vez dentro del entorno virtual, instalar las librerías indicadas en el archivo requirements.txt.
+5. Una vez dentro del entorno virtual, ejecutar la siguiente línea:
+~~~
+python setup.py build_ext --inplace
+~~~
+6. Instalar las librerías indicadas en el archivo requirements.txt.
 ~~~
 pip install -r requirements.txt
 ~~~
-6. En este punto ya se tienen todas las librerías necesarias para la ejecución del archivo 'deteccion.py', que es el encargado de realizar la detección de árboles. Como argumentos de entrada se le pasa la ruta de la carpeta donde estén guardadas las imágenes de test y la ruta de la carpeta de salida donde se guardarán las imágenes con la detección realizada.
+7. Descargar el modelo entrenado del siguiente enlace y guardarlo dentro de la carpeta './inference'
+~~~
+poner link a OneDrive
+~~~
+8. En este punto ya se tienen todas las librerías necesarias para la ejecución del archivo 'deteccion.py', que es el encargado de realizar la detección de árboles. Como argumentos de entrada se le pasa la ruta de la carpeta donde estén guardadas las imágenes de test y la ruta de la carpeta de salida donde se guardarán las imágenes con la detección realizada.
 ~~~
 python deteccion.py --images_test_path ./test_images --output-path ./resultados_test
 ~~~
