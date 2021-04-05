@@ -1,0 +1,26 @@
+<annotation>
+	<folder>imagenes_divididas</folder>
+	<filename>ejemplo1_7.png</filename>
+	<path>D:\Máster-Visión Artificial\2O-CUATRI\1-Aplicaciones Industriales y Comerciales\pruebas_arboles\imagenes_divididas\ejemplo1_7.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>400</width>
+		<height>400</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>tree</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1</xmin>
+			<ymin>77</ymin>
+			<xmax>67</xmax>
+			<ymax>176</ymax>
+		</bndbox>
+	</object>
+</annotation>
