@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 4
+  revision 5
   modified_by 3 "Vanesa"
 
 
@@ -111,7 +111,7 @@ ${docstring}${body}
       end
 
       operation 135814 "__init__"
-	public explicit_return_type ""
+	private explicit_return_type ""
 	nparams 1
 	  param in name "coordenates" explicit_type "Tuple"
 	
@@ -122,11 +122,19 @@ ${docstring}${body}
 "
 	
       end
+
+      classrelation 128131 // <dependency>
+	relation 128131 -_->
+	  a public
+	    python "${type}"
+	    classrelation_ref 128131 // <dependency>
+	  b parent class_ref 135174 // NeuralNetwork
+      end
     end
 
     classdiagram 128006 "class diagram"
       classdiagramsettings show_members_full_definition yes show_members_visibility yes member_max_width 0 end
-      size A4
+      size A2
     end
 
     class 128134 "Aplication"
@@ -230,14 +238,6 @@ ${docstring}${members}
 	MysqlColumn
       end
 
-      classrelation 128518 // <dependency>
-	relation 128518 -_->
-	  a public
-	    python "${type}"
-	    classrelation_ref 128518 // <dependency>
-	  b parent class_ref 128006 // TreeDetector
-      end
-
       attribute 129414 "coordx"
 	private explicit_type "float"
 	cpp_decl ""
@@ -277,7 +277,7 @@ ${docstring}${body}
       end
 
       operation 135942 "__init__"
-	public explicit_return_type ""
+	private explicit_return_type ""
 	nparams 4
 	  param in name "height" explicit_type "int"
 	  param in name "row" explicit_type "int"
@@ -317,6 +317,14 @@ ${docstring}${body}
 "
 	
       end
+
+      classrelation 128387 // <dependency>
+	relation 128387 -_->
+	  a public
+	    python "${type}"
+	    classrelation_ref 128387 // <dependency>
+	  b parent class_ref 128262 // Tree
+      end
     end
 
     class 128518 "GeoLocalizator"
@@ -346,7 +354,7 @@ ${docstring}${body}
       end
 
       operation 136070 "calculate_coordenates"
-	public explicit_return_type "Tuple(float, float)"
+	private explicit_return_type "Tuple(float, float)"
 	nparams 1
 	  param in name "tree" type class_ref 128262 // Tree
 	
@@ -356,6 +364,14 @@ ${docstring}${body}
 ${docstring}${body}
 "
 	
+      end
+
+      classrelation 128003 // <dependency>
+	relation 128003 -_->
+	  a public
+	    python "${type}"
+	    classrelation_ref 128003 // <dependency>
+	  b parent class_ref 128262 // Tree
       end
     end
 
@@ -402,6 +418,14 @@ ${docstring}${body}
 "
 	
       end
+
+      classrelation 128259 // <dependency>
+	relation 128259 -_->
+	  a public
+	    python "${type}"
+	    classrelation_ref 128259 // <dependency>
+	  b parent class_ref 128262 // Tree
+      end
     end
 
     class 135302 "pandas"
@@ -434,6 +458,12 @@ ${docstring}${body}
 	activitydiagramsettings draw_all_relations no
 	 end
 	size A4
+      end
+
+      activitydiagram 134531 "Diagram2"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A2
       end
 
       activitynode 128003 initial_node ""
@@ -586,6 +616,107 @@ ${docstring}${body}
 
 	flow 131203 "<flow>"
 	  on activitynode_ref 128131 // activity_final
+	end
+      end
+
+      activitynode 135043 initial_node ""
+	flow 137731 "<flow>"
+	  on activityaction_ref 135555 // activity action Leer imagen completa
+	end
+      end
+
+      activityaction 135555 "Leer imagen completa"
+	opaque_action
+	flow 138243 "<flow>"
+	  on activityaction_ref 135683 // activity action Recorrer la imagen hacia la derecha en saltos de 400 píxeles
+	end
+      end
+
+      activityaction 135683 "Recorrer la imagen hacia la derecha en saltos de 400 píxeles"
+	opaque_action
+	flow 137859 "Si hay más cuadrantes hacia la derecha"
+	  on activitynode_ref 135171 // decision
+	end
+
+	flow 140163 "<flow>"
+	  on activitynode_ref 135939 // activity_final
+	end
+      end
+
+      activitynode 135171 decision ""
+	flow 138115 "No"
+	  on activityaction_ref 135811 // activity action Dar un salto de 400 píxeles hacia abajo
+	end
+
+	flow 138499 "Si"
+	  on activitynode_ref 135427 // join
+	end
+
+	flow 139395 "<flow>"
+	  on activitynode_ref 135555 // join
+	end
+
+	flow 139523 "Si"
+	  on activitynode_ref 135811 // fork
+	end
+      end
+
+      activityaction 135811 "Dar un salto de 400 píxeles hacia abajo"
+	opaque_action
+	flow 140547 "Si hay más cuadrantes hacia abajo"
+	  on activitynode_ref 136323 // decision
+	end
+      end
+
+      activitynode 135299 decision ""
+      end
+
+      activitynode 135427 join ""
+      end
+
+      activitynode 135555 join ""
+	flow 139267 "<flow>"
+	  on activityaction_ref 135683 // activity action Recorrer la imagen hacia la derecha en saltos de 400 píxeles
+	end
+      end
+
+      activitynode 135683 join ""
+      end
+
+      activitynode 135811 fork ""
+	flow 139779 "<flow>"
+	  on activityaction_ref 135939 // activity action Enviar subimagen a NeuralNetwork
+	end
+
+	flow 139907 "<flow>"
+	  on activityaction_ref 135683 // activity action Recorrer la imagen hacia la derecha en saltos de 400 píxeles
+	end
+      end
+
+      activityaction 135939 "Enviar subimagen a NeuralNetwork"
+	opaque_action
+	flow 139651 "<flow>"
+	  on activityaction_ref 135939 // activity action Enviar subimagen a NeuralNetwork
+	end
+      end
+
+      activitynode 135939 activity_final ""
+      end
+
+      activitynode 136195 activity_final ""
+      end
+
+      activitynode 136323 decision ""
+	flow 140675 "Sí"
+	  on activityaction_ref 135683 // activity action Recorrer la imagen hacia la derecha en saltos de 400 píxeles
+	end
+
+	flow 140803 "<flow>"
+	  on activitynode_ref 136195 // activity_final
+	end
+
+	flow 140931 "No"
+	  on activitynode_ref 136195 // activity_final
 	end
       end
     end

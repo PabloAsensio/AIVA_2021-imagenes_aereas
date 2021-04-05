@@ -1,16 +1,25 @@
-window_sizes 1920 1017 174 1741 867 104
+window_sizes 1920 1017 277 1638 867 104
 
 diagrams
   classdiagram_ref 128006 // class diagram
-    1076 608 100 A4 20 0
-  active  sequencediagram_ref 134534 // squence diagram
+    1076 608 105 A2 20 0
+  sequencediagram_ref 134534 // squence diagram
     1741 867 80 A2 0 0
   activitydiagram_ref 128003 // Diagram
     1535 760 127 A4 71 0
+  active  activitydiagram_ref 134531 // Diagram2
+    1638 867 100 A2 5 0
 end
 show_stereotypes
-selected class_ref 128390 // TreePainter
 open
-  class_ref 135174 // NeuralNetwork
+  class_ref 128006 // TreeDetector
+  class_ref 128262 // Tree
+  class_ref 128518 // GeoLocalizator
+  class_ref 135046 // cv2
+  activityaction_ref 135683 // activity action Recorrer la imagen hacia la derecha en saltos de 400 píxeles
+  activitynode_ref 135171 // decision
+  activityaction_ref 135811 // activity action Dar un salto de 400 píxeles hacia abajo
+  activitynode_ref 135427 // join
+  activitynode_ref 135555 // join
 end
 end
