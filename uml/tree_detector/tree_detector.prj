@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 1
+  revision 2
   modified_by 6 "pablo"
 
 
@@ -79,7 +79,7 @@ ${docstring}${members}
       operation 128134 "recognize"
 	public explicit_return_type "List(Tree)"
 	nparams 1
-	  param in name "roi" explicit_type "np.array"
+	  param in name "image" explicit_type "np.array"
 	
 	
 	
@@ -108,6 +108,19 @@ ${docstring}${body}
 	    python "${type}"
 	    classrelation_ref 128902 // <dependency>
 	  b parent class_ref 128518 // GeoLocalizator
+      end
+
+      operation 135814 "__init__"
+	public explicit_return_type ""
+	nparams 1
+	  param in name "coordenates" explicit_type "Tuple"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
       end
     end
 
@@ -248,6 +261,36 @@ ${docstring}${members}
 	mysql_decl ""
 	MysqlColumn
       end
+
+      operation 135558 "set_coordenates"
+	public explicit_return_type ""
+	nparams 2
+	  param in name "x" explicit_type "float"
+	  param in name "y" explicit_type "float"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${v1}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 135942 "__init__"
+	public explicit_return_type ""
+	nparams 4
+	  param in name "height" explicit_type "int"
+	  param in name "row" explicit_type "int"
+	  param in name "col" explicit_type "int"
+	  param in name "width" explicit_type "int"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${v1}, ${p2}${v2}, ${p3}${v3}, ${p4}${v4}${)}:
+${docstring}${body}
+"
+	
+      end
     end
 
     class 128390 "TreePainter"
@@ -289,6 +332,20 @@ ${docstring}${members}
       mysql_decl ""
       
       operation 128518 "geo_localize"
+	public explicit_return_type "List(Tree)"
+	nparams 2
+	  param in name "trees" explicit_type "List(Tree)"
+	  param in name "coordenates" explicit_type "Tuple"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}, ${p1}${v1}${)}:
+${docstring}${body}
+"
+	
+      end
+
+      operation 136070 "calculate_coordenates"
 	public explicit_return_type "Tuple(float, float)"
 	nparams 1
 	  param in name "tree" type class_ref 128262 // Tree
@@ -296,6 +353,76 @@ ${docstring}${members}
 	
 	
 	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    sequencediagram 134534 "squence diagram"
+      sequencediagramsettings show_full_operations_definition yes end
+      overlapping_bars size A2
+    end
+
+    class 135046 "cv2"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 135174 "NeuralNetwork"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 135174 "detect_trees"
+	public explicit_return_type "List(Tree)"
+	nparams 1
+	  param in name "roi" explicit_type "np.array"
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${p0}${v0}${)}:
+${docstring}${body}
+"
+	
+      end
+    end
+
+    class 135302 "pandas"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+      operation 135686 "read_csv"
+	public explicit_return_type ""
+	nparams 0
+	
+	
+	
+	python_def "${@}${static}${abstract}def ${name}${(}${)}:
 ${docstring}${body}
 "
 	

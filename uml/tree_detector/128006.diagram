@@ -2,7 +2,7 @@ format 224
 
 classcanvas 128006 class_ref 128006 // TreeDetector
   classdiagramsettings member_max_width 0 end
-  xyzwh 276 369 2000 243 65
+  xyzwh 278 367 2000 243 81
 end
 classcanvas 128134 class_ref 128134 // Aplication
   classdiagramsettings member_max_width 0 end
@@ -10,7 +10,7 @@ classcanvas 128134 class_ref 128134 // Aplication
 end
 classcanvas 128390 class_ref 128262 // Tree
   classdiagramsettings member_max_width 0 end
-  xyzwh 504 57 2000 127 173
+  xyzwh 499 113 2000 361 155
 end
 classcanvas 129030 class_ref 128390 // TreePainter
   classdiagramsettings member_max_width 0 end
@@ -18,7 +18,7 @@ classcanvas 129030 class_ref 128390 // TreePainter
 end
 classcanvas 129414 class_ref 128518 // GeoLocalizator
   classdiagramsettings member_max_width 0 end
-  xyzwh 564 489 2000 245 53
+  xyzwh 551 542 2000 353 65
 end
 relationcanvas 128774 relation_ref 128390 // <dependency>
   from ref 128134 z 2001 to ref 128006
