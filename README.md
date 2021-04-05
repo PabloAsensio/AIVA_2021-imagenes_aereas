@@ -14,18 +14,18 @@ Los pasos a seguir para la ejecución del programa son los siguientes:
 git clone https://github.com/pasensio97/AIVA_2021-imagenes_aereas
 ~~~
 
-2. Navegar en la ventana de comandos(cmd) hasta la carpeta './AIVA_20201-imagenes_aereas/deteccion_arboles_con_retinanet'
-3. Crear entorno virtual con virtualenv
+2. Navegar en la ventana de comandos(cmd) hasta la carpeta './AIVA_20201-imagenes_aereas/deteccion_arboles_con_retinanet'.
+3. Crear entorno virtual con virtualenv.
 ~~~
 virtualenv venv
 ~~~
-4. Activar el entorno virtual
+4. Activar el entorno virtual.
 ~~~
 venv\Scripts\activate
 ~~~
-5. Una vez dentro del entorno virtual, instalar las librerías indicadas en el archivo requirements.txt
+5. Una vez dentro del entorno virtual, instalar las librerías indicadas en el archivo requirements.txt.
 ~~~
-pip install -r requirements
+pip install -r requirements.txt
 ~~~
 6. En este punto ya se tienen todas las librerías necesarias para la ejecución del archivo 'deteccion.py', que es el encargado de realizar la detección de árboles. Como argumentos de entrada se le pasa la ruta de la carpeta donde estén guardadas las imágenes de test y la ruta de la carpeta de salida donde se guardarán las imágenes con la detección realizada.
 ~~~
