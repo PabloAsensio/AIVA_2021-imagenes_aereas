@@ -1,17 +1,16 @@
-window_sizes 1742 910 202 1535 760 104
+window_sizes 1920 1017 174 1741 867 104
 
 diagrams
   classdiagram_ref 128006 // class diagram
-    1076 608 100 A4 0 0
-  sequencediagram_ref 134534 // squence diagram
-    1345 760 100 A2 24 0
-  active  activitydiagram_ref 128003 // Diagram
+    1076 608 100 A4 20 0
+  active  sequencediagram_ref 134534 // squence diagram
+    1741 867 80 A2 0 0
+  activitydiagram_ref 128003 // Diagram
     1535 760 127 A4 71 0
 end
 show_stereotypes
-selected activity_ref 128003 // TreeDetection
+selected class_ref 128390 // TreePainter
 open
   class_ref 135174 // NeuralNetwork
-  activity_ref 128003 // TreeDetection
 end
 end
