@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 6
+  revision 7
   modified_by 3 "Vanesa"
 
 
@@ -663,7 +663,7 @@ ${docstring}${body}
 
       activityaction 135811 "Dar un salto de 400 píxeles hacia abajo"
 	opaque_action
-	flow 140547 "Si hay más cuadrantes hacia abajo o si hay mas cuadrantes hacia la derecha"
+	flow 140547 "Si hay más cuadrantes hacia abajo"
 	  on activitynode_ref 136323 // decision
 	end
       end

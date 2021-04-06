@@ -30,10 +30,10 @@ activityactioncanvas 133123 activityaction_ref 135939 // activity action Enviar 
   xyzwh 638 325 2000 100 60
 end
 activitynodecanvas 135939 activitynode_ref 136195 // activity_final
-  xyz 1250 264 2000
+  xyz 1052 257 2000
 end
 activitynodecanvas 136067 activitynode_ref 136323 // decision
-  xyz 1247 195 2000
+  xyz 1049 193 2000
 end
 flowcanvas 128259 flow_ref 137731 // <flow>
   
@@ -48,7 +48,7 @@ end
 flowcanvas 129411 flow_ref 138115 // No
   decenter_begin 513
   
-  from ref 128515 z 2001 label "No" xyz 708 189.5 2001 to ref 129283
+  from ref 128515 z 2001 label "No" xyz 708 189 2001 to ref 129283
    write_horizontally default
 end
 flowcanvas 129539 flow_ref 138243 // <flow>
@@ -78,23 +78,24 @@ flowcanvas 133891 flow_ref 139907 // <flow>
   line 134147 z 2001 to ref 128387
    write_horizontally default
 end
-flowcanvas 136195 flow_ref 140547 // Si hay más cuadrantes hacia abajo o si hay mas cuadrantes hacia la derecha
+flowcanvas 136195 flow_ref 140547 // Si hay más cuadrantes hacia abajo
   
-  from ref 129283 z 2001 label "Si hay más cuadrantes hacia abajo o si hay mas cuadrantes hacia la derecha" xyz 861 193.5 2001 to ref 136067
+  from ref 129283 z 2001 label "Si hay más cuadrantes hacia abajo" xyz 866 191 2001 to ref 136067
    write_horizontally default
 end
 flowcanvas 136323 flow_ref 140675 // Sí
   decenter_end 600
   
-  from ref 136067 z 2001 label "Sí" xyz 1243.5 166.5 2001 to point 1256 136
+  from ref 136067 z 2001 label "Sí" xyz 1046 167 2001 to point 1059 140
   line 136579 z 2001 to point 412 136
   line 136451 z 2001 to ref 128387
    write_horizontally default
 end
 flowcanvas 136963 flow_ref 140931 // No
+  decenter_begin 486
   decenter_end 360
   
-  from ref 136067 z 2001 label "No" xyz 1239 233.5 2001 to ref 135939
+  from ref 136067 z 2001 label "No" xyz 1041 228.5 2001 to ref 135939
    write_horizontally default
 end
 end
