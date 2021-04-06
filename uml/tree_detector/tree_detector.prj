@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 7
+  revision 8
   modified_by 3 "Vanesa"
 
 
@@ -530,13 +530,13 @@ ${docstring}${body}
 	end
 
 	flow 128515 "<flow>"
-	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
 	end
       end
 
       activitynode 128259 merge ""
 	flow 128259 "Sí"
-	  on activityaction_ref 128771 // activity action Dibujar Bounding Box
+	  on activityaction_ref 128771 // activity action Generar Objeto Tree
 	end
       end
 
@@ -548,18 +548,14 @@ ${docstring}${body}
 	unordered 
       end
 
-      activityaction 128771 "Dibujar Bounding Box"
+      activityaction 128771 "Generar Objeto Tree"
 	opaque_action
-	flow 128771 "<flow>"
-	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
-	end
-
-	flow 130947 "<flow>"
-	  on activityaction_ref 129027 // activity action Guardar la imagen con las bounding boxes dibujadas
+	flow 147843 "<flow>"
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
 	end
       end
 
-      activityaction 128899 "Recorrer Bounding Boxes"
+      activityaction 128899 "Recorrer Bounding Boxes (ordenadas por score)"
 	opaque_action
 	flow 128643 "Si score > 0.5"
 	  on activitynode_ref 128259 // merge
@@ -569,34 +565,46 @@ ${docstring}${body}
 	  on activitynode_ref 128515 // decision
 	end
 
-	flow 129283 "Si score > 0.5"
+	flow 129283 "Si score < 0.5"
 	  on activitynode_ref 128515 // decision
 	end
       end
 
       activitynode 128515 decision ""
 	flow 129027 "Sí"
-	  on activityaction_ref 128771 // activity action Dibujar Bounding Box
+	  on activityaction_ref 128771 // activity action Generar Objeto Tree
 	end
 
 	flow 129155 "No"
-	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
 	end
 
 	flow 129411 "Sí"
-	  on activityaction_ref 128771 // activity action Dibujar Bounding Box
+	  on activityaction_ref 128771 // activity action Generar Objeto Tree
 	end
 
 	flow 129539 "<flow>"
-	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
 	end
 
 	flow 129667 "<flow>"
-	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
 	end
 
 	flow 129795 "No"
-	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+	  on activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
+	end
+
+	flow 147587 "<flow>"
+	  on activityaction_ref 128771 // activity action Generar Objeto Tree
+	end
+
+	flow 147715 "No"
+	  on activityaction_ref 128771 // activity action Generar Objeto Tree
+	end
+
+	flow 147971 "Sí"
+	  on activityaction_ref 142467 // activity action Devolver objetos Tree
 	end
       end
 
@@ -717,6 +725,13 @@ ${docstring}${body}
 
 	flow 140931 "No"
 	  on activitynode_ref 136195 // activity_final
+	end
+      end
+
+      activityaction 142467 "Devolver objetos Tree"
+	opaque_action
+	flow 148099 "<flow>"
+	  on activitynode_ref 128131 // activity_final
 	end
       end
     end

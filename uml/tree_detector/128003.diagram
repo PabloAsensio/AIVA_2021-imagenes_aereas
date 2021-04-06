@@ -1,58 +1,58 @@
 format 224
 
 activitynodecanvas 128003 activitynode_ref 128003 // initial_node
-  xyz 29.6557 166.956 2000
+  xyz 29.4357 166.706 2000
 end
 activitynodecanvas 128131 activitynode_ref 128131 // activity_final
-  xyz 535.129 596.187 2000
+  xyz 644.629 562.487 2000
 end
 activityactioncanvas 128259 activityaction_ref 128003 // activity action Seleccionar GPU
   
   show_opaque_action_definition default
-  xyzwh 88.1199 148.821 2000 101 61
+  xyzwh 88.8999 148.001 2000 101 61
 end
 activityactioncanvas 128643 activityaction_ref 128131 // activity action Cargar el modelo
   
   show_opaque_action_definition default
-  xyzwh 217.24 148.007 2000 101 61
+  xyzwh 217.51 148.187 2000 101 61
 end
 activityactioncanvas 128771 activityaction_ref 128259 // activity action Cargar el modelo preentrenado (ResNet50)
   
   show_opaque_action_definition default
-  xyzwh 344.981 146.979 2000 109 61
+  xyzwh 344.361 146.539 2000 109 61
 end
 activityactioncanvas 128899 activityaction_ref 128387 // activity action Cargar imagen
   
   show_opaque_action_definition default
-  xyzwh 475.428 148.024 2000 101 61
+  xyzwh 475.678 148.204 2000 101 61
 end
 activityactioncanvas 129027 activityaction_ref 128515 // activity action Preprocesar la imagen
   
   show_opaque_action_definition default
-  xyzwh 605.995 149.64 2000 101 61
+  xyzwh 605.545 149.63 2000 101 61
 end
 activityactioncanvas 129155 activityaction_ref 128643 // activity action Realizar la detección
   
   show_opaque_action_definition default
-  xyzwh 605.401 242.946 2000 101 61
+  xyzwh 605.951 242.266 2000 101 61
 end
-activityactioncanvas 130179 activityaction_ref 128771 // activity action Dibujar Bounding Box
+activityactioncanvas 130179 activityaction_ref 128771 // activity action Generar Objeto Tree
   
   show_opaque_action_definition default
-  xyzwh 605.215 484.214 2000 101 61
+  xyzwh 456.535 406.494 2000 101 61
 end
-activityactioncanvas 131203 activityaction_ref 128899 // activity action Recorrer Bounding Boxes
+activityactioncanvas 131203 activityaction_ref 128899 // activity action Recorrer Bounding Boxes (ordenadas por score)
   
   show_opaque_action_definition default
-  xyzwh 605.198 328.89 2006 101 61
+  xyzwh 603.478 329.68 2006 103 65
 end
 activitynodecanvas 133123 activitynode_ref 128515 // decision
-  xyz 642.318 418.494 2000
+  xyz 642.058 418.654 2000
 end
-activityactioncanvas 134147 activityaction_ref 129027 // activity action Guardar la imagen con las bounding boxes dibujadas
+activityactioncanvas 140035 activityaction_ref 142467 // activity action Devolver objetos Tree
   
   show_opaque_action_definition default
-  xyzwh 605.622 575.373 2000 101 67
+  xyzwh 606.12 477.89 2005 101 61
 end
 flowcanvas 128515 flow_ref 128003 // <flow>
   
@@ -69,30 +69,10 @@ flowcanvas 131459 flow_ref 128515 // <flow>
   from ref 129155 z 2007 to ref 131203
    write_horizontally default
 end
-flowcanvas 132483 flow_ref 128771 // <flow>
-  
-  from ref 130179 z 2007 to point 542.364 512.993
-  line 132739 z 2007 to point 542.143 357.337
-  line 132611 z 2007 to ref 131203
-   write_horizontally default
-end
-flowcanvas 134787 flow_ref 129283 // Si score > 0.5
+flowcanvas 134787 flow_ref 129283 // Si score < 0.5
   decenter_begin 495
   
-  from ref 131203 z 2007 label "Si score > 0.5" xyz 661 396 3000 to ref 133123
-   write_horizontally default
-end
-flowcanvas 134915 flow_ref 129411 // Sí
-  
-  from ref 133123 z 2001 label "Sí" xyz 658 457 3000 to ref 130179
-   write_horizontally default
-end
-flowcanvas 135811 flow_ref 129795 // No
-  decenter_end 492
-  
-  from ref 133123 z 2007 label "No" xyz 674.5 419.5 3000 to point 757.555 433.331
-  line 136195 z 2007 to point 758.555 354.888
-  line 136323 z 2007 to ref 131203
+  from ref 131203 z 2007 label "Si score < 0.5" xyz 658 397 2007 to ref 133123
    write_horizontally default
 end
 flowcanvas 137475 flow_ref 130307 // <flow>
@@ -111,19 +91,30 @@ flowcanvas 138115 flow_ref 130691 // <flow>
   from ref 128771 z 2001 to ref 128899
    write_horizontally default
 end
-flowcanvas 138499 flow_ref 130947 // <flow>
-  
-  from ref 130179 z 2001 to ref 134147
-   write_horizontally default
-end
 flowcanvas 138627 flow_ref 131075 // <flow>
   
   from ref 128899 z 2001 to ref 129027
    write_horizontally default
 end
-flowcanvas 138755 flow_ref 131203 // <flow>
+flowcanvas 139651 flow_ref 147715 // No
   
-  from ref 134147 z 2001 to ref 128131
+  from ref 133123 z 2001 label "No" xyz 586 419 3000 to ref 130179
+   write_horizontally default
+end
+flowcanvas 139779 flow_ref 147843 // <flow>
+  
+  from ref 130179 z 2007 to point 503.62 358.2
+  line 139907 z 2007 to ref 131203
+   write_horizontally default
+end
+flowcanvas 140163 flow_ref 147971 // Sí
+  
+  from ref 133123 z 2006 label "Sí" xyz 657 455 3000 to ref 140035
+   write_horizontally default
+end
+flowcanvas 140291 flow_ref 148099 // <flow>
+  
+  from ref 140035 z 2006 to ref 128131
    write_horizontally default
 end
 end
