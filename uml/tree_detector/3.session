@@ -11,6 +11,8 @@ diagrams
     1638 867 100 A2 5 0
 end
 show_stereotypes
+selected 
+  package_ref 129 // tree_detector
 open
   class_ref 128006 // TreeDetector
   class_ref 128262 // Tree
