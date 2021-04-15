@@ -23,7 +23,7 @@ virtualenv --python=python3.6 venv && source venv/bin/activate
 
 **4.** Instalar las librerías indicadas en el archivo requirements.txt.
 ~~~
-pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ~~~
 Es posible que de algún error por falta de librerías o módulos. Pero son fácilmente solucionables.
 
