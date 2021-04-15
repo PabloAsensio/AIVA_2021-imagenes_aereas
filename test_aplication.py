@@ -18,10 +18,4 @@ if __name__ == "__main__":
     tree_painter = TreePainter()
     canvas = tree_painter.draw(image.copy(), trees)
 
-    cv.imwrite("detectiton.jpg", canvas)
-
-    # cv.imshow("Salida", canvas)
-    # cv.waitKey(0) 
-    # cv.destroyAllWindows() 
-
-    # print(trees[0].get_image_info())
+    cv.imwrite("detectiton.png", canvas)
