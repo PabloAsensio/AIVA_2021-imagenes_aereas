@@ -18,6 +18,10 @@ class TreePainter:
 
             center = (int(col + width / 2), int(row + height / 2))
             radius = int(min(height / 2, width / 2))
-            cv.circle(canvas, center, radius, (0,0, 255), thickness=1, lineType=8, shift=0)
+
+            # Draw center
+            cv.circle(canvas, center, 2, (0,0, 255), thickness=2, lineType=8, shift=0)
+            # Draw circunference
+            cv.circle(canvas, center, radius, (0,0, 255), thickness=2, lineType=8, shift=0)
 
         return canvas
