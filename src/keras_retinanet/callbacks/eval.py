@@ -14,7 +14,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-import keras
+from tensorflow import keras
 from ..utils.eval import evaluate
 
 
@@ -85,12 +85,13 @@ class Evaluate(keras.callbacks.Callback):
 
         if self.tensorboard:
             import tensorflow as tf
-            if tf.version.VERSION < '2.0.0' and self.tensorboard.writer:
-                summary = tf.Summary()
-                summary_value = summary.value.add()
-                summary_value.simple_value = self.mean_ap
-                summary_value.tag = "mAP"
-                self.tensorboard.writer.add_summary(summary, epoch)
+            writer = tf.summary.create_file_writer(self.tensorboard.log_dir)
+            with writer.as_default():
+                tf.summary.scalar("mAP", self.mean_ap, step=epoch)
+                if self.verbose == 1:
+                    for label, (average_precision, num_annotations) in average_precisions.items():
+                        tf.summary.scalar("AP_" + self.generator.label_to_name(label), average_precision, step=epoch)
+                writer.flush()
 
         logs['mAP'] = self.mean_ap
 

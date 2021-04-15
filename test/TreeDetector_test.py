@@ -1,7 +1,10 @@
 import unittest
 import cv2 as cv
 
-from src.TreeDetector import TreeDetector
+import sys, os
+sys.path.insert(0, os.path.abspath('..'))
+
+from ..src.TreeDetector import TreeDetector
 
 
 class TestTreeDetector(unittest.TestCase):

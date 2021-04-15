@@ -1,17 +1,16 @@
 from typing import List
 
 import numpy as np
-import numpy.typing as npt
 
-from keras_retinanet import models
-from keras_retinanet.utils.gpu import setup_gpu
-from keras_retinanet.utils.image import preprocess_image, resize_image
+from .keras_retinanet import models
+from .keras_retinanet.utils.gpu import setup_gpu
+from .keras_retinanet.utils.image import preprocess_image, resize_image
 
 from .Tree import Tree
 
 
 class NeuralNetwork:
-    def __init__(self, path_to_model: str, score: float = 0.5):
+    def __init__(self, path_to_model: str = "./model/model.h5", score: float = 0.5):
         """
         Neural Network will use RetinaNet to detect trees.
 
@@ -20,7 +19,7 @@ class NeuralNetwork:
         """
 
         # select GPU
-        gpu = 0
+        gpu = "0"
         setup_gpu(gpu)
 
         # Load RetinaNet model
@@ -29,11 +28,11 @@ class NeuralNetwork:
         # Set score confidance
         self._score = score
 
-    def detect_trees(self, img: npt.ArrayLike, row: int, col: int) -> List:
+    def detect_trees(self, img: np.ndarray, row: int, col: int) -> List:
         """
         Detect trees in sub-image.
 
-        :param npt.ArrayLike img: The image where detection will be. Must be (400x400x3).
+        :param np.ndarray img: The image where detection will be. Must be (400x400x3).
         :param int row: Padding row.
         :param int col: Padding col.
         :return: List with all detected trees.
@@ -61,6 +60,7 @@ class NeuralNetwork:
             box = box.astype(int)
 
             x1, y1, x2, y2 = box
+            # print(x1, y1, x2, y2)
             width = x2 - x1
             height = y2 - y1
             trees.append(Tree(y1 + row, x1 + col, width, height))

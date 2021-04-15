@@ -2,7 +2,6 @@ from typing import List, Tuple
 
 import cv2 as cv
 import numpy as np
-import numpy.typing as npt
 
 
 class TreeDetector:
@@ -17,16 +16,19 @@ class TreeDetector:
         self._nn = nn  # Neural Network
         self._trees = []
 
-    def recognize(self, img: npt.ArrayLike, coordenates: Tuple) -> List:
+    def recognize(self, img: np.ndarray, coordenates: Tuple) -> List:
         """
         Recognize trees in image.
 
-        :param npt.ArrayLike img: The target image.
+        :param np.ndarray img: The target image.
         :param tuple coordenates: The coordenates of the image.
         :return: the list with all detected trees.
         """
         self._img = img
         self._slide()
+
+        # Flatten list
+        self._trees = [val for sublist in self._trees for val in sublist]
         return self._trees
 
     def _slide(self):

@@ -1,1 +1,0 @@
-python deteccion.py --images_test_path ./test_images --output-path ./resultados_test

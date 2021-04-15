@@ -1,3 +1,5 @@
+from typing import Tuple
+
 class Tree:
     def __init__(self, row: int, col: int, width: int, height: int):
         self._row = row
@@ -16,3 +18,12 @@ class Tree:
         """
         self._coordx = x
         self._coordy = y
+
+    def get_image_info(self) -> Tuple:
+        """
+        Returns in Tree image info.
+
+        :retun: row, col, width, height
+        """
+        return self._row, self._col, self._width, self._height
+        
