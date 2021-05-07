@@ -1,0 +1,5 @@
+python deteccion_and_metrics.py
+
+or 
+
+python deteccion_and_metrics.py --images_test_path ./test_images --output-path ./results_test_images  --output-path2 ./results_test_images_and_gt
