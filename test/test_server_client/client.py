@@ -1,13 +1,15 @@
-import cv2
 import base64
-import json
 import http.client
+import json
+import sys
+
+import cv2
 import numpy as np
 
 if __name__ == "__main__":
-    
+
     # Cargamos una imagen, luego va a base64, a un mapa y a un JSON
-    img = cv2.imread('img.png')
+    img = cv2.imread('austin1.tif')
     png_encoded_img = cv2.imencode('.jpg', img)
 
     base64_encoded_img = base64.b64encode(png_encoded_img[1])
@@ -33,3 +35,7 @@ if __name__ == "__main__":
     img_final_decoded = cv2.imdecode( np.frombuffer( jpg_img_result, dtype=np.int8 ), 1)
 
     cv2.imwrite('img_result.jpg', img_final_decoded)
+    cv2.imshow("Processed Image", img_final_decoded)
+    cv2.waitKey(0)
+
+    sys.exit(1)
