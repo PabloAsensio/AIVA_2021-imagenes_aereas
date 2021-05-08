@@ -25,7 +25,6 @@ class TestTreeDetector(unittest.TestCase):
 
         # If the number of objects 'Tree' generated is greater than zero the neural network works fine.
         self.assertGreater(len(trees), 0)
-        pass
 
 if __name__ == "__main__":
     unittest.main()

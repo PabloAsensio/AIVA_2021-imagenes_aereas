@@ -35,8 +35,11 @@ class TreeDetector:
         """
         Iterates around the image and calls NN to detect trees in sub-image.
         """
-        STEP = 250
+
+        STEP = 500
+        
         cols, rows = self._img.shape[:-1]
+
         for col in range(0, cols, STEP):
             for row in range(0, rows, STEP):
                 trees = self._nn.detect_trees(
