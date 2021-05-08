@@ -18,14 +18,14 @@ import numpy as np
 import random
 import warnings
 
-import keras
+from tensorflow import keras
 
 from ..utils.anchors import (
     anchor_targets_bbox,
     anchors_for_shape,
     guess_shapes
 )
-from ..utils.config import parse_anchor_parameters
+from ..utils.config import parse_anchor_parameters, parse_pyramid_levels
 from ..utils.image import (
     TransformParameters,
     adjust_transform_for_image,
@@ -71,19 +71,19 @@ class Generator(keras.utils.Sequence):
             compute_shapes         : Function handler for computing the shapes of the pyramid for a given input.
             preprocess_image       : Function handler for preprocessing an image (scaling / normalizing) for passing through a network.
         """
-        self.transform_generator    = transform_generator
-        self.visual_effect_generator = visual_effect_generator
-        self.batch_size             = int(batch_size)
-        self.group_method           = group_method
-        self.shuffle_groups         = shuffle_groups
-        self.image_min_side         = image_min_side
-        self.image_max_side         = image_max_side
-        self.no_resize              = no_resize
-        self.transform_parameters   = transform_parameters or TransformParameters()
-        self.compute_anchor_targets = compute_anchor_targets
-        self.compute_shapes         = compute_shapes
-        self.preprocess_image       = preprocess_image
-        self.config                 = config
+        self.transform_generator            = transform_generator
+        self.visual_effect_generator        = visual_effect_generator
+        self.batch_size                     = int(batch_size)
+        self.group_method                   = group_method
+        self.shuffle_groups                 = shuffle_groups
+        self.image_min_side                 = image_min_side
+        self.image_max_side                 = image_max_side
+        self.no_resize                      = no_resize
+        self.transform_parameters           = transform_parameters or TransformParameters()
+        self.compute_anchor_targets         = compute_anchor_targets
+        self.compute_shapes                 = compute_shapes
+        self.preprocess_image               = preprocess_image
+        self.config                         = config
 
         # Define groups
         self.group_images()
@@ -255,11 +255,11 @@ class Generator(keras.utils.Sequence):
     def preprocess_group_entry(self, image, annotations):
         """ Preprocess image and its annotations.
         """
-        # preprocess the image
-        image = self.preprocess_image(image)
-
         # resize image
         image, image_scale = self.resize_image(image)
+
+        # preprocess the image
+        image = self.preprocess_image(image)
 
         # apply resizing to annotations too
         annotations['bboxes'] *= image_scale
@@ -313,9 +313,13 @@ class Generator(keras.utils.Sequence):
 
     def generate_anchors(self, image_shape):
         anchor_params = None
+        pyramid_levels = None
         if self.config and 'anchor_parameters' in self.config:
             anchor_params = parse_anchor_parameters(self.config)
-        return anchors_for_shape(image_shape, anchor_params=anchor_params, shapes_callback=self.compute_shapes)
+        if self.config and 'pyramid_levels' in self.config:
+            pyramid_levels = parse_pyramid_levels(self.config)
+
+        return anchors_for_shape(image_shape, anchor_params=anchor_params, pyramid_levels=pyramid_levels, shapes_callback=self.compute_shapes)
 
     def compute_targets(self, image_group, annotations_group):
         """ Compute target outputs for the network using images and their annotations.
