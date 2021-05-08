@@ -1,15 +1,30 @@
 import base64
 import http.client
 import json
-import sys
 
+import argparse
 import cv2
 import numpy as np
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--path_input_img',
+                    help='Path of the input image',
+                    required=True,
+                    type=str)
+parser.add_argument('--path_output_img',
+                    help='Path where the output image will be saved',
+                    required=False,
+                    default='./output_img.png',
+                    type=str)
+
+args = parser.parse_args()
+path_input_img = args.path_input_img
+path_output_img = args.path_output_img
 
 if __name__ == "__main__":
 
     # Cargamos una imagen, luego va a base64, a un mapa y a un JSON
-    img = cv2.imread('austin1.tif')
+    img = cv2.imread(path_input_img)
     png_encoded_img = cv2.imencode('.jpg', img)
 
     base64_encoded_img = base64.b64encode(png_encoded_img[1])
@@ -34,8 +49,8 @@ if __name__ == "__main__":
     jpg_img_result = base64.b64decode(img_result)
     img_final_decoded = cv2.imdecode( np.frombuffer( jpg_img_result, dtype=np.int8 ), 1)
 
-    cv2.imwrite('img_result.jpg', img_final_decoded)
-    cv2.imshow("Processed Image", img_final_decoded)
+    cv2.imwrite(path_output_img, img_final_decoded)
+    cv2.imshow("Processed Image (press any key to exit)", img_final_decoded)
     cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-    sys.exit(1)
