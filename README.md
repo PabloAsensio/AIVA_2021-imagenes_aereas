@@ -40,7 +40,7 @@ python setup.py build_ext --inplace
 
 [Enlace a model.h5](https://urjc-my.sharepoint.com/:u:/g/personal/v_lomas_2020_alumnos_urjc_es/EacpLrcXskdKiNGxebzT-a0BuwnjOVyTQ0o0iaKJOjZzFQ?e=LYQbvI) 
 
-**8.** En este punto ya se tienen todas las depencencias necesarias para la ejecución del archivo ```test_aplication.py```, que es el encargado de realizar la detección de árboles. 
+**8.** En este punto ya se tienen todas las depencencias necesarias para la ejecución del servidor ```aplication.py```, que es el encargado de realizar la detección de árboles. 
 ~~~
-python test_aplication.py
+python aplication.py
 ~~~
