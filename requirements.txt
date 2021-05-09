@@ -3,6 +3,7 @@ astunparse==1.6.3
 cachetools==4.2.2
 certifi>=2019.11.28
 chardet>=3.0.4
+Cython
 flatbuffers==1.12
 gast==0.3.3
 google-auth==1.30.0
