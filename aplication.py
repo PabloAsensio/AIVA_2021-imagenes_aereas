@@ -14,7 +14,7 @@ from src.TreeDetector import TreeDetector
 from src.TreePainter import TreePainter
 
 # To not reload NN
-resnet = NeuralNetwork("./src/model/model.h5")
+retinanet = NeuralNetwork("./src/model/model.h5")
 
 class Server(BaseHTTPRequestHandler):
     """ Works like Server HTTP """
@@ -26,7 +26,7 @@ class Server(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_POST(self):
-        """ Precess POSTed data (image)  """ 
+        """ Precess POSTed data (image)  """
         message = self._extract_msg()
 
         # Extract the image from the JSON that must come in Base64
@@ -41,7 +41,7 @@ class Server(BaseHTTPRequestHandler):
 
         coordenates = (None, None)
 
-        tree_detector = TreeDetector(resnet)
+        tree_detector = TreeDetector(retinanet)
         trees = tree_detector.recognize(image, coordenates) 
 
         tree_painter = TreePainter()
