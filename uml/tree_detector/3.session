@@ -1,10 +1,8 @@
-window_sizes 1920 1017 221 1694 867 104
+window_sizes 1920 1017 221 1694 864 104
 
 diagrams
-  active  sequencediagram_ref 147843 // diagrama secuencia final
-    1694 867 100 A2 0 5
-  sequencediagram_ref 134534 // squence diagram
-    114 86 100 A2 0 0
+  active  sequencediagram_ref 134534 // squence diagram
+    128 118 100 A2 0 0
 end
 show_stereotypes
 selected sequencediagram_ref 147843 // diagrama secuencia final

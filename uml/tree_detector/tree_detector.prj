@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 12
+  revision 13
   modified_by 3 "Vanesa"
 
 
@@ -36,7 +36,7 @@ format 224
   
   class_color yellow duration_color transparent continuation_color gray note_color blue fragment_color transparent subject_color transparent usecase_color yellow package_color transparent component_color green artifact_color green deploymentnode_color gray state_color yellow stateaction_color transparent activity_color transparent activityregion_color transparent activitypartition_color transparent activityaction_color transparent parameterpin_color white generalization_color black 
   dpi 96
-  font_size 8
+  font_size 10
   diagram_format A4
 
   image_root_dir ""
