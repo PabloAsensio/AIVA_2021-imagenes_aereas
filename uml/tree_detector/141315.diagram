@@ -1,0 +1,105 @@
+format 224
+
+activitynodecanvas 128003 activitynode_ref 142851 // initial_node
+  xyz 36 169 2000
+end
+activityactioncanvas 128131 activityaction_ref 148995 // activity action Lanzar servidor (docker)
+  
+  show_opaque_action_definition default
+  xyzwh 101 152 2000 100 60
+end
+activityactioncanvas 128259 activityaction_ref 149123 // activity action Cliente (client.py)
+  
+  show_opaque_action_definition default
+  xyzwh 177 496 2000 100 60
+end
+activityactioncanvas 128515 activityaction_ref 149251 // activity action Servidor esperando imágenes
+  
+  show_opaque_action_definition default
+  xyzwh 273 155 2000 100 60
+end
+activityobjectcanvas 129923 activityobject_ref 134787 // activity object NeuralNetwork
+  
+  xyzwh 269 79 2000 89 31
+end
+activitynodecanvas 130051 activitynode_ref 142979 // decision
+  xyz 522 168 2000
+end
+activityactioncanvas 130819 activityaction_ref 149507 // activity action Decodificar imagen recibida en base64
+  
+  show_opaque_action_definition default
+  xyzwh 623 156 2000 100 60
+end
+activityactioncanvas 131075 activityaction_ref 149635 // activity action Se crea un objeto TreeDetector
+  
+  show_opaque_action_definition default
+  xyzwh 760 156 2000 100 60
+end
+activityobjectcanvas 131203 activityobject_ref 134915 // activity object TreeDetector
+  
+  xyzwh 765 85 2000 79 31
+end
+activityactioncanvas 131331 activityaction_ref 149763 // activity action Recorrer imagen y realizar la detección
+  
+  show_opaque_action_definition default
+  xyzwh 897 158 2000 115 57
+end
+activityobjectcanvas 131459 activityobject_ref 135043 // activity object Tree
+  
+  xyzwh 937 88 2000 39 31
+end
+activityactioncanvas 131587 activityaction_ref 149891 // activity action Dibujar bounding boxes
+  
+  show_opaque_action_definition default
+  xyzwh 906 256 2000 100 60
+end
+activityobjectcanvas 131715 activityobject_ref 135171 // activity object TreePainter
+  
+  xyzwh 1044 267 2000 71 31
+end
+activityactioncanvas 131843 activityaction_ref 150019 // activity action Codificar imagen en base64
+  
+  show_opaque_action_definition default
+  xyzwh 912 368 2000 100 60
+end
+activityactioncanvas 131971 activityaction_ref 150147 // activity action Enviar imagen al cliente
+  
+  show_opaque_action_definition default
+  xyzwh 726 372 2000 100 60
+end
+activityactioncanvas 132099 activityaction_ref 150275 // activity action Mostrar imagen por pantalla y guardarla en disco
+  
+  show_opaque_action_definition default
+  xyzwh 556 375 2000 118 59
+end
+flowcanvas 128643 flow_ref 154627 // <flow>
+  
+  from ref 128003 z 2001 to ref 128131
+   write_horizontally default
+end
+flowcanvas 130179 flow_ref 155395 // Ha recibido una imagen
+  decenter_begin 550
+  
+  from ref 128515 z 2001 label "Ha recibido una imagen" xyz 393.5 171 3000 to ref 130051
+   write_horizontally default
+end
+flowcanvas 130307 flow_ref 155523 // No
+  decenter_end 850
+  
+  from ref 130051 z 2001 label "No" xyz 518 217 3000 to point 533 249
+  line 130563 z 2001 to point 359 249
+  line 130435 z 2001 to ref 128515
+   write_horizontally default
+end
+flowcanvas 130947 flow_ref 155651 // Sí
+  
+  from ref 130051 z 2001 label "Sí" xyz 573.5 167.5 3000 to ref 130819
+   write_horizontally default
+end
+flowcanvas 132227 flow_ref 155779 // <flow>
+  
+  from ref 132099 z 2001 to point 310 410
+  line 132355 z 2001 to ref 128515
+   write_horizontally default
+end
+end

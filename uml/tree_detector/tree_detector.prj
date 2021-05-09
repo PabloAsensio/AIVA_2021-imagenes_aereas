@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 8
+  revision 9
   modified_by 3 "Vanesa"
 
 
@@ -735,5 +735,193 @@ ${docstring}${body}
 	end
       end
     end
+
+    class 128387 "Client"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    class 128515 "Server"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
+    end
+
+    activity 134531 "final"
+      activitydiagram 141315 "diagrama final de actividad"
+	activitydiagramsettings draw_all_relations no
+	 end
+	size A3
+      end
+
+      activitynode 142851 initial_node ""
+	flow 154627 "<flow>"
+	  on activityaction_ref 148995 // activity action Lanzar servidor (docker)
+	end
+      end
+
+      activityaction 148995 "Lanzar servidor (docker)"
+	opaque_action
+	flow 154755 "<flow>"
+	  on activityaction_ref 149251 // activity action Servidor esperando imágenes
+	end
+
+	flow 155139 "<flow>"
+	  on activityaction_ref 149379 // activity action Cargar red neuronal
+	end
+      end
+
+      activityaction 149123 "Cliente (client.py)"
+	opaque_action
+      end
+
+      activityaction 149251 "Servidor esperando imágenes"
+	opaque_action
+	flow 155395 "Ha recibido una imagen"
+	  on activitynode_ref 142979 // decision
+	end
+      end
+
+      activityobject 134659 "NeuralNetwork"
+	 explicit_type ""
+	unordered 
+	flow 155011 "<flow>"
+	  on activityaction_ref 149251 // activity action Servidor esperando imágenes
+	end
+      end
+
+      activityaction 149379 "Cargar red neuronal"
+	opaque_action
+	flow 155267 "<flow>"
+	  on activityaction_ref 149251 // activity action Servidor esperando imágenes
+	end
+      end
+
+      activityobject 134787 "NeuralNetwork"
+	 explicit_type ""
+	unordered 
+      end
+
+      activitynode 142979 decision ""
+	flow 155523 "No"
+	  on activityaction_ref 149251 // activity action Servidor esperando imágenes
+	end
+
+	flow 155651 "Sí"
+	  on activityaction_ref 149507 // activity action Decodificar imagen recibida en base64
+	end
+      end
+
+      activityaction 149507 "Decodificar imagen recibida en base64"
+	opaque_action
+      end
+
+      activityaction 149635 "Se crea un objeto TreeDetector"
+	opaque_action
+      end
+
+      activityobject 134915 "TreeDetector"
+	 explicit_type ""
+	unordered 
+      end
+
+      activityaction 149763 "Recorrer imagen y realizar la detección"
+	opaque_action
+      end
+
+      activityobject 135043 "Tree"
+	 explicit_type ""
+	unordered 
+      end
+
+      activityaction 149891 "Dibujar bounding boxes"
+	opaque_action
+      end
+
+      activityobject 135171 "TreePainter"
+	 explicit_type ""
+	unordered 
+      end
+
+      activityaction 150019 "Codificar imagen en base64"
+	opaque_action
+      end
+
+      activityaction 150147 "Enviar imagen al cliente"
+	opaque_action
+      end
+
+      activityaction 150275 "Mostrar imagen por pantalla y guardarla en disco"
+	opaque_action
+	flow 155779 "<flow>"
+	  on activityaction_ref 149251 // activity action Servidor esperando imágenes
+	end
+      end
+    end
+
+    activity 134659 "Servidor esperando imágenes"
+    end
   end
+
+  deploymentview 128003 "diagrama de despliegue"
+    //deployment diagram settings
+    deploymentdiagramsettings
+     end
+    deploymentdiagram 141059 "diagrama despligue aplicacion"
+      deploymentdiagramsettings package_name_in_tab yes
+       end
+      size A4
+    end
+
+    deploymentnode 128003 "Cliente local"
+    end
+
+    deploymentnode 128131 "Servidor local"
+    end
+
+    artifact 128003 "client.py"
+    end
+
+    artifact 128131 "python 3.6
+opencv
+tensorflow 2.4
+keras 
+keras_retinanet
+numpy 
+..."
+      associated_artifacts
+      end
+      ncouples 1
+      key "" value ""
+    end
+
+    artifact 128259 "manage.py"
+      simplerelation 128003
+	-_->
+	  on artifact_ref 128387 // aplication.py
+      end
+    end
+
+    artifact 128387 "aplication.py"
+    end
+  end
+
+  package_ref 128003 // SO Anfitrión
 end

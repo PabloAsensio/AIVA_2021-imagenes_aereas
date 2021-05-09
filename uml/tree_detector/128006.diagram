@@ -2,30 +2,30 @@ format 224
 
 classcanvas 128003 class_ref 135174 // NeuralNetwork
   classdiagramsettings member_max_width 0 end
-  xyz 272.637 451.158 2005
+  xyz 272.937 451.658 2005
 end
 classcanvas 128006 class_ref 128006 // TreeDetector
   classdiagramsettings member_max_width 0 end
-  xyzwh 262.937 270.082 2000 243 81
+  xyzwh 262.237 270.082 2000 243 81
 end
 classcanvas 128134 class_ref 128134 // Aplication
   classdiagramsettings member_max_width 0 end
-  xyzwh 323.74 105.489 2000 123 71
+  xyzwh 323.14 105.489 2000 123 71
 end
 classcanvas 128390 class_ref 128262 // Tree
   classdiagramsettings member_max_width 0 end
-  xyzwh 204.14 606.984 2000 361 155
+  xyzwh 204.54 606.284 2000 361 155
 end
 classcanvas 129030 class_ref 128390 // TreePainter
   classdiagramsettings member_max_width 0 end
-  xyzwh 48.9364 282.393 2000 155 63
+  xyzwh 48.4364 282.693 2000 155 63
 end
 classcanvas 129414 class_ref 128518 // GeoLocalizator
   classdiagramsettings member_max_width 0 end
-  xyzwh 524.444 444.662 2000 353 65
+  xyzwh 524.444 444.262 2000 353 65
 end
 relationcanvas 128131 relation_ref 128003 // <dependency>
-  decenter_end 658
+  decenter_end 657
   from ref 129414 z 2001 to ref 128390
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
