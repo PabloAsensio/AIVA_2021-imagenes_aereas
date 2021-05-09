@@ -6,17 +6,17 @@ end
 activityactioncanvas 128131 activityaction_ref 148995 // activity action Lanzar servidor (docker)
   
   show_opaque_action_definition default
-  xyzwh 101 152 2000 100 60
+  xyzwh 113 147 2000 100 60
 end
 activityactioncanvas 128259 activityaction_ref 149123 // activity action Cliente (client.py)
   
   show_opaque_action_definition default
-  xyzwh 177 496 2000 100 60
+  xyzwh 111 312 2000 100 60
 end
 activityactioncanvas 128515 activityaction_ref 149251 // activity action Servidor esperando imágenes
   
   show_opaque_action_definition default
-  xyzwh 273 155 2000 100 60
+  xyzwh 267 154 2000 100 60
 end
 activityobjectcanvas 129923 activityobject_ref 134787 // activity object NeuralNetwork
   
@@ -70,7 +70,7 @@ end
 activityactioncanvas 132099 activityaction_ref 150275 // activity action Mostrar imagen por pantalla y guardarla en disco
   
   show_opaque_action_definition default
-  xyzwh 556 375 2000 118 59
+  xyzwh 516 378 2000 118 59
 end
 flowcanvas 128643 flow_ref 154627 // <flow>
   
@@ -80,25 +80,25 @@ end
 flowcanvas 130179 flow_ref 155395 // Ha recibido una imagen
   decenter_begin 550
   
-  from ref 128515 z 2001 label "Ha recibido una imagen" xyz 393.5 171 3000 to ref 130051
+  from ref 128515 z 2001 label "Ha recibido una imagen" xyz 390 170.5 2001 to ref 130051
    write_horizontally default
 end
 flowcanvas 130307 flow_ref 155523 // No
   decenter_end 850
   
-  from ref 130051 z 2001 label "No" xyz 518 217 3000 to point 533 249
-  line 130563 z 2001 to point 359 249
+  from ref 130051 z 2001 label "No" xyz 518 217 2001 to point 533 249
+  line 130563 z 2001 to point 347 249
   line 130435 z 2001 to ref 128515
    write_horizontally default
 end
 flowcanvas 130947 flow_ref 155651 // Sí
   
-  from ref 130051 z 2001 label "Sí" xyz 573.5 167.5 3000 to ref 130819
+  from ref 130051 z 2001 label "Sí" xyz 573 167 2001 to ref 130819
    write_horizontally default
 end
 flowcanvas 132227 flow_ref 155779 // <flow>
   
-  from ref 132099 z 2001 to point 310 410
+  from ref 132099 z 2001 to point 309 408
   line 132355 z 2001 to ref 128515
    write_horizontally default
 end

@@ -2,36 +2,36 @@ format 224
 
 deploymentnodecanvas 128003 deploymentnode_ref 128003 // Cliente local
   name "console"
-  xyzwh 152.423 233.835 2000 193 135
+  xyzwh 152.32 233 2000 193 135
 end
 deploymentnodecanvas 128131 deploymentnode_ref 128131 // Servidor local
   name "contenedor docker"
-  show_stereotype_properties yes xyzwh 487.967 224.468 2000 273 177
+  show_stereotype_properties yes xyzwh 487.82 224.08 2000 273 177
 end
 packagecanvas 128643 
   package_ref 128003 // SO Anfitrión
-  name_in_tab yes show_context_mode cpp_namespace show_stereotype_properties yes  xyzwh 93.0797 121.712 0 687 367
+  name_in_tab yes show_context_mode cpp_namespace show_stereotype_properties yes  xyzwh 106.24 112.36 0 687 367
 end
 artifactcanvas 128771 artifact_ref 128003 // client.py
-  xyz 185.576 278.743 2005
+  xyz 182.196 282.763 2005
 end
 artifactcanvas 129027 artifact_ref 128259 // manage.py
-  xyz 513.555 275.835 2010
+  xyz 508.695 258.835 2010
 end
 artifactcanvas 129155 artifact_ref 128387 // aplication.py
-  xyz 601.867 346.666 2005
+  xyz 604.927 318.806 2005
 end
-hubcanvas 129283 xyz 484.152 292.987 2005
-hubcanvas 129411 xyz 333.735 293.957 2005
+hubcanvas 129283 xyz 484.24 291.96 2005
+hubcanvas 129411 xyz 332.9 293.3 2005
 textcanvas 130051 "8000
 
 "
-  xyzwh 458.641 296.529 2011 24 28
+  xyzwh 458.46 296.06 2011 24 28
 textcanvas 130179 "8000
 "
-  xyzwh 347.032 297.56 2011 25 25
+  xyzwh 347.06 297.06 2011 25 25
 line 129539 ---- decenter_end 412
-  from ref 129411 z 2006 label "conexión HTTP" max_width 255 xyz 378 280 3000 to ref 128131
+  from ref 129411 z 2006 label "conexión HTTP" max_width 255 xyz 378 280 2006 to ref 128131
 simplerelationcanvas 130307 simplerelation_ref 128003
   from ref 129027 z 2011 to ref 129155
 end

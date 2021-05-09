@@ -1,6 +1,6 @@
 format 224
 "tree_detector"
-  revision 9
+  revision 12
   modified_by 3 "Vanesa"
 
 
@@ -877,6 +877,25 @@ ${docstring}${members}
     end
 
     activity 134659 "Servidor esperando imágenes"
+    end
+
+    sequencediagram 147843 "diagrama secuencia final"
+      sequencediagramsettings show_full_operations_definition yes end
+      overlapping_bars size A2
+    end
+
+    class 135043 "base64"
+      visibility package 
+      cpp_decl ""
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl "class ${name}${inherit}:
+${docstring}${members}
+"
+      idl_decl ""
+      explicit_switch_type ""
+      mysql_decl ""
+      
     end
   end
 

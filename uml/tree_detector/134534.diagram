@@ -3,20 +3,20 @@ format 224
 classinstance 128003 class_ref 128390 // TreePainter
   name ""   xyz 1350.2 8 2000 life_line_z 2000
 classinstance 128006 class_ref 128134 // Aplication
-  name ""   xyz 98.8 5 2000 life_line_z 2000
+  name ""   xyz 98.8 7 2000 life_line_z 2000
 classinstance 128134 class_ref 135046 // cv2
-  name ""   xyz 242.6 4 2000 life_line_z 2000
+  name ""   xyz 242.6 6 2000 life_line_z 2000
 classinstance 129286 class_ref 128006 // TreeDetector
   name ""   xyz 471.4 7.8 2000 life_line_z 2000
 classinstance 129798 class_ref 135174 // NeuralNetwork
-  name ""   xyz 722 4.6 2000 life_line_z 2000
+  name ""   xyz 722 7.6 2000 life_line_z 2000
 fragment 130566 "loop"
   xyzwh 477.8 345.2 2025 82 215
 end
 classinstance 130694 class_ref 135302 // pandas
   name ""   xyz 343.8 4 2000 life_line_z 2000
 classinstance 131718 class_ref 128518 // GeoLocalizator
-  name ""   xyz 934.6 8 2000 life_line_z 2000
+  name ""   xyz 934.6 9 2000 life_line_z 2000
 classinstance 132230 class_ref 128262 // Tree
   name ""   xyz 1254.7 8.1 2000 life_line_z 2000
 fragment 132742 "loop"

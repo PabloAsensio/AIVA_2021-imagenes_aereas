@@ -1,28 +1,16 @@
-window_sizes 1201 781 197 999 631 104
+window_sizes 1920 1017 221 1694 867 104
 
 diagrams
-  deploymentdiagram_ref 141059 // diagrama despligue aplicacion
-    1310 693 167 A4 73 0
-  classdiagram_ref 128006 // class diagram
-    114 86 100 A2 0 0
+  active  sequencediagram_ref 147843 // diagrama secuencia final
+    1694 867 100 A2 0 5
   sequencediagram_ref 134534 // squence diagram
-    114 86 100 A2 0 53
-  activitydiagram_ref 128003 // Diagram
-    114 86 100 A4 0 0
-  active  activitydiagram_ref 141315 // diagrama final de actividad
-    999 631 100 A3 0 155
+    114 86 100 A2 0 0
 end
 show_stereotypes
-selected activitydiagram_ref 141315 // diagrama final de actividad
+selected sequencediagram_ref 147843 // diagrama secuencia final
 open
   class_ref 128518 // GeoLocalizator
   class_ref 135046 // cv2
-  activityaction_ref 135683 // activity action Recorrer la imagen hacia la derecha en saltos de 400 píxeles
-  activitynode_ref 135171 // decision
-  activityaction_ref 135811 // activity action Dar un salto de 400 píxeles hacia abajo
-  activitynode_ref 135427 // join
-  activitynode_ref 135555 // join
-  activityobject_ref 134659 // activity object NeuralNetwork
   deploymentview_ref 128003 // diagrama de despliegue
 end
 end
