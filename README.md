@@ -9,29 +9,6 @@ Tree Detector es un sistema de visión artificial que resolverá el problema de 
   <img src="./images/test_images/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa1_5.png"> 
 </p>
 
-## Docker para el Servidor
-### Servidor en Linux
-Será necesario tener instalado:
-* [Docker](https://www.docker.com/)
-* [Nvidea-Docker](https://github.com/NVIDIA/nvidia-docker). Aceleramiento por GPU.
-~~~
-docker run -it -p 8000:8000 --rm --gpus=all pasensio97/tree_detector_image python manage.py
-~~~
-### Servidor en Windows
-Nvidea-Docker no está disponible. Por lo que sólo se debe instalar:
-* [Docker](https://www.docker.com/)
-~~~
-docker run -it -p 8000:8000 --rm pasensio97/tree_detector_image python manage.py
-~~~
-### Ejemplo de Cliente
-El ejeplo del cliente corresponde al script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor.
-~~~
-python client.py --input img.png
-~~~
-~~~
-python client.py --input input_image.png --output output_img.png
-~~~
-
 ## Instalación del Repositorio
 El equipo donde se quiera ejecutar el programa debe contar con:
 * Python 3.6.x (comprobado en 3.6.13, posiblemente funcione en versiones posteriores)
@@ -72,6 +49,29 @@ python setup.py build_ext --inplace
 **8.** En este punto ya se tienen todas las depencencias necesarias para la ejecución del servidor ```aplication.py```, que es el encargado de realizar la detección de árboles. 
 ~~~
 python aplication.py
+~~~
+
+## Aplicación en Docker
+### Servidor en Linux
+Será necesario tener instalado:
+* [Docker](https://www.docker.com/)
+* [Nvidea-Docker](https://github.com/NVIDIA/nvidia-docker). Aceleramiento por GPU.
+~~~
+docker run -it -p 8000:8000 --rm --gpus=all pasensio97/tree_detector_image python manage.py
+~~~
+### Servidor en Windows
+Nvidea-Docker no está disponible. Por lo que sólo se debe instalar:
+* [Docker](https://www.docker.com/)
+~~~
+docker run -it -p 8000:8000 --rm pasensio97/tree_detector_image python manage.py
+~~~
+### Ejemplo de Cliente
+El ejeplo del cliente corresponde al script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor.
+~~~
+python client.py --input img.png
+~~~
+~~~
+python client.py --input input_image.png --output output_img.png
 ~~~
 
 ## Rendimiento del sistema
