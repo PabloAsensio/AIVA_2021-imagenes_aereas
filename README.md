@@ -44,3 +44,14 @@ python setup.py build_ext --inplace
 ~~~
 python aplication.py
 ~~~
+
+# Rendimiento del sistema
+Para evaluar el rendimiento de la aplicación desarrollada se han calculado métricas, en particular la curva **Precision–Recall** y el valor de **Average Precision (AP)**, que son las métricas más populares que se utilizan para evaluar los modelos de detección de objetos. En concreto, se han utilizado las métricas que se utilizan en la conocida competición Pascal VOC, implementada en este [repositorio](https://github.com/rafaelpadilla/Object-Detection-Metrics).
+Para ello, ha sido necesario realizar los siguientes pasos:
+- Elaborar un conjunto de imágenes de test (no ‘vistas’ anteriormente por la red).
+- Etiquetarlas manualmente para generar los archivos de ground truth para cada una de las imágenes de test.
+- Pasar cada una de las imágenes de test por la red para obtener así los archivos con las detecciones realizadas.
+- Calcular métricas a partir de los archivos de ground truth y las detecciones. 
+
+La **curva Precicion - Recall** obtenida ha sido la siguiente:
+<img src="../test/metrics/result_metrics/tree.png" width="550" class="center"> 
