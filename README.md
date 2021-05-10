@@ -11,6 +11,8 @@ Tree Detector es un sistema de visión artificial que resolverá el problema de 
 
 El problema de detección de árboles en imágenes aéreas se ha enfocado como un problema de **detección de objetos**. Para ello, se probó con diversas redes de detección de objetos como son YOLO v3 y Faster R-CNN, pero fue con **RetinaNet** con la que se obtuvieron mejores resultados. Dicha red puede encontrarse en este [repositorio](https://github.com/fizyr/keras-retinanet). 
 
+Para el entrenamiento de RetinaNet se elaboró un dataset a partir de imágenes de Google Maps, que pueden encontrarse en el directorio ```.images/train_images/```. Cada una de estas imágenes de entrenamiento va acompañada de su correspodiente archivo .xml con los árboles etiquetados. En el apartado [Instalación del Repositorio](#instalacion_del_repositorio) se proporciona un enlace para poder descargarse el modelo entrenado. 
+
 ## Instalación del Repositorio
 El equipo donde se quiera ejecutar el programa debe contar con:
 * Python 3.6.x (comprobado en 3.6.13, posiblemente funcione en versiones posteriores)
