@@ -54,4 +54,4 @@ Para ello, ha sido necesario realizar los siguientes pasos:
 - Calcular métricas a partir de los archivos de ground truth y las detecciones. 
 
 La **curva Precicion - Recall** obtenida ha sido la siguiente:
-<img src="../test/metrics/result_metrics/tree.png" width="550" class="center"> 
+<img src="./test/metrics/results_metrics/tree.png" width="550" class="center"> 
