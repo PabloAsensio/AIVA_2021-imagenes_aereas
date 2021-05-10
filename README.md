@@ -12,16 +12,13 @@ Tree Detector es un sistema de visión artificial que resolverá el problema de 
 
 El problema de detección de árboles en imágenes aéreas se ha enfocado como un problema de **detección de objetos**. Para ello, se probó con diversas redes de detección de objetos como son YOLO v3 y Faster R-CNN, pero fue con **RetinaNet** con la que se obtuvieron mejores resultados. Dicha red puede encontrarse en este [repositorio](https://github.com/fizyr/keras-retinanet).
 
-Para el entrenamiento de RetinaNet se elaboró un dataset a partir de imágenes de Google Maps, que pueden encontrarse en el directorio ```.images/train_images/```. Cada una de estas imágenes de entrenamiento va acompañada de su correspodiente archivo .xml con los árboles etiquetados. En el apartado [Instalación del Repositorio](#instalacion-del-repositorio) se proporciona un enlace para poder descargarse el modelo entrenado. 
+Para el entrenamiento de RetinaNet se elaboró un dataset a partir de imágenes de Google Maps, que pueden encontrarse en el directorio ```.images/train_images/```. Cada una de estas imágenes de entrenamiento va acompañada de su correspodiente archivo .xml con los árboles etiquetados. En el apartado [Instalación del Repositorio](#instalacion-del-repositorio) se proporciona un enlace para poder descargarse el modelo entrenado.
 
-Para programar la aplicación se ha seguido una programación orientada a objetos, cuyas clases pueden encontrarse en el directorio ```./scr/```. El siguiente diagrama de secuencia de forma gráfica el funcionamiento de la apliación:
+Para programar la aplicación se ha seguido una programación orientada a objetos, cuyas clases pueden encontrarse en el directorio ```scr/```. El siguiente diagrama de secuencia de forma gráfica el funcionamiento de la apliación:
 
 <p align="center">
-  <img src="./uml/tree_detector/Imagenes_Diagramas/diagrama_de_secuencia_final2.png" width="1200" class="center"> 
+  <img src="./uml/tree_detector/Imagenes_Diagramas/diagrama_de_secuencia_final2.png" width="1200" class="center">
 </p>
-
-
-
 
 ## Instalación del Repositorio
 
@@ -154,6 +151,7 @@ Cabe mencionar, que incluso para el ojo humano, es difícil determinar cuántos 
 Aun así, la aplicación desarrollada consigue dar una buena estimación de la posición y del número de árboles que hay en una imagen aérea.
 
 ## Trabajos Futuros
+
 Consideramos que una posible lista de mejoras sobre este trabajo puede ser:
 
 * Entrenamiento de la red con un dataset mayor y más variado al que hemos empleado. Teniendo en cuenta los árboles pelados.
