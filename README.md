@@ -65,3 +65,37 @@ python setup.py build_ext --inplace
 ~~~
 python aplication.py
 ~~~
+
+# Rendimiento del sistema
+Para evaluar el rendimiento de la aplicación desarrollada se han calculado métricas, en particular la curva **Precision–Recall** y el valor de **Average Precision (AP)**, que son las métricas más populares que se utilizan para evaluar los modelos de detección de objetos. En concreto, se han utilizado las métricas que se utilizan en la conocida competición Pascal VOC, implementada en este [repositorio](https://github.com/rafaelpadilla/Object-Detection-Metrics).
+Para ello, ha sido necesario realizar los siguientes pasos:
+- Elaborar un conjunto de imágenes de test (no ‘vistas’ anteriormente por la red).
+- Etiquetarlas manualmente para generar los archivos de ground truth para cada una de las imágenes de test.
+- Pasar cada una de las imágenes de test por la red para obtener así los archivos con las detecciones realizadas.
+- Calcular métricas a partir de los archivos de ground truth y las detecciones. 
+
+La curva **Precicion - Recall** obtenida ha sido la siguiente:
+<p align="center">
+  <img src="./test/metrics/results_metrics/tree.png" width="550" class="center"> 
+</p>
+
+Esta curva lo que expresa es como varían los valores de precisión y recall al ir variando el umbral de confianza (valor de IoU). Un detector ideal es aquel para el que la precisión se mantiene alta a medida que aumenta el recall, es decir, un detector que tenga pocos Falsos Positivos(FP) y pocos Falsos Negativos(FN). En nuestro caso, como se puede observar, **el valor de precisión va disminuyendo a medida que el valor de recall aumenta**, lo que implica que para que se detecten el mayor número de árboles posibles, el valor de falsos positivos aumentará.
+
+Por otro lado, el dato cuantitativo que refleja cómo de bueno es el detector de árboles desarrollado, viene dado por el valor de **Average Precision (AP)**, que representa el área bajo la curva Precision – Recall, que en este caso tiene un valor del **79,88%**.
+
+A continuación se muestras varios ejemplos donde se comparan en una misma imagen las bounding boxes de ground truth (árboles etiquetados manualmente) y las bounding boxes de los árboles detectados por el modelo.
+
+<p align="center">
+  <img src="./test/metrics/results_test_images_and_gt/legend.PNG" width="550" class="center"> 
+</p>
+
+<img src="./images/test_images/test_completa3_6.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa3_6.png"> 
+
+<img src="./images/test_images/test_completa1_2.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_2.png"> 
+
+<img src="./images/test_images/test_completa1_5.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_5.png"> 
+
+Como puede comprobarse, **las detecciones realizadas por el modelo entrenado se aproximan bastante bien al ground truth**. Sin embargo, cuando hay varios árboles juntos las detecciones no son tan precisas, como puede verse en el segundo ejemplo anterior. 
+
+Cabe mencionar, que incluso para el ojo humano, es difícil determinar cuántos árboles hay de forma exacta en una imagen aérea, y más aún cuando hay varios árboles muy juntos.
+Aun así, la aplicación desarrollada consigue dar una buena estimación de la posición y del número de árboles que hay en una imagen aérea.
