@@ -13,6 +13,15 @@ El problema de detección de árboles en imágenes aéreas se ha enfocado como u
 
 Para el entrenamiento de RetinaNet se elaboró un dataset a partir de imágenes de Google Maps, que pueden encontrarse en el directorio ```.images/train_images/```. Cada una de estas imágenes de entrenamiento va acompañada de su correspodiente archivo .xml con los árboles etiquetados. En el apartado [Instalación del Repositorio](#instalacion-del-repositorio) se proporciona un enlace para poder descargarse el modelo entrenado. 
 
+Para programar la aplicación se ha seguido una programación orientada a objetos, cuyas clases pueden encontrarse en el directorio ```./scr/```. El siguiente diagrama de secuencia de forma gráfica el funcionamiento de la apliación:
+
+<p align="center">
+  <img src="./uml/tree_detector/Imagenes_Diagramas/diagrama_de_secuencia_final2.png" width="550" class="center"> 
+</p>
+
+
+
+
 ## Instalación del Repositorio
 El equipo donde se quiera ejecutar el programa debe contar con:
 * Python 3.6.x (comprobado en 3.6.13, posiblemente funcione en versiones posteriores)
