@@ -1,13 +1,34 @@
 # Tree Detector
-En este repositorio se simula la experiencia empresarial entre un cliente (profesor) y empresa (alumnos).
+Tree Detector es un sistema de visión artificial que resolverá el problema de conteo de árboles, así como el de detectarlos y saber su radio desde imágenes aéreas. 
 
-Tree Detector es un sistema de visión artificial que resolverá el problema de conteo de árboles, así como el de detectarlos y saber su radio.
+# Docker para el Servidor
+## Servidor en Linux
+Será necesario tener instalado:
+* [Docker](https://www.docker.com/)
+* [Nvidea-Docker](https://github.com/NVIDIA/nvidia-docker). Aceleramiento por GPU.
+~~~
+docker run -it -p 8000:8000 --rm --gpus=all pasensio97/tree_detector_image python manage.py
+~~~
+## Servidor en Windows
+Nvidea-Docker no está disponible. Por lo que sólo se debe instalar:
+* [Docker](https://www.docker.com/)
+~~~
+docker run -it -p 8000:8000 --rm pasensio97/tree_detector_image python manage.py
+~~~
+## Ejemplo de Cliente
+El ejeplo del cliente corresponde al script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor.
+~~~
+python client.py --input img.png
+~~~
+~~~
+python client.py --input input_image.png --output output_img.png
+~~~
 
-# Instalación
+# Instalación del Repositorio
 El equipo donde se quiera ejecutar el programa debe contar con:
 * Python 3.6.x (comprobado en 3.6.13, posiblemente funcione en versiones posteriores)
 * CUDA 11.2
-* cuDNN v8.1.0 (January 26th, 2021), for CUDA 11.0,11.1 and 11.2
+* cuDNN v8.1.0 (January 26th, 2021), for CUDA 11.0, 11.1 and 11.2
 * Cuda Compilation tool 10.1
 Los pasos a seguir para la ejecución del programa son los siguientes:
 
