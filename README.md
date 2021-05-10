@@ -69,7 +69,7 @@ docker run -it -p 8000:8000 --rm --gpus=all pasensio97/tree_detector_image pytho
 docker run -it -p 8000:8000 --rm pasensio97/tree_detector_image python manage.py
 ~~~
 ### Cliente
-Para mandar imágenes como cliente se utiliza el script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor. El script client.py admite dos argumentos de entrada: uno para indicar el directorio de la imagen de entrada(--input) y otro para indicar el directorio de la imagen de salida(--output). 
+Para mandar imágenes como cliente se utiliza el script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor. El script ```client.py``` admite dos argumentos de entrada: uno para indicar el directorio de la imagen de entrada(```--input```) y otro para indicar el directorio de la imagen de salida(```--output```). 
 ~~~
 python client.py --input img.png
 ~~~
