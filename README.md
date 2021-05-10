@@ -99,9 +99,11 @@ A continuación se muestras varios ejemplos donde se comparan en una misma image
 
 <p align="center">
   <img src="./images/test_images/test_completa3_6.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa3_6.png"> 
-
+</p>
+<p align="center">
   <img src="./images/test_images/test_completa1_2.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_2.png"> 
-
+</p>  
+<p align="center">
   <img src="./images/test_images/test_completa1_5.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_5.png"> 
 </p>
 
