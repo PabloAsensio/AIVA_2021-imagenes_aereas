@@ -41,7 +41,6 @@ Es posible que de algún error por falta de librerías o módulos. Pero son fác
 python setup.py build_ext --inplace
 ~~~
 
-
 **7.** Descargar el modelo entrenado del siguiente enlace y guardarlo dentro de la carpeta 'src/model'. 
 
 [Enlace a model.h5](https://urjc-my.sharepoint.com/:u:/g/personal/v_lomas_2020_alumnos_urjc_es/EacpLrcXskdKiNGxebzT-a0BuwnjOVyTQ0o0iaKJOjZzFQ?e=LYQbvI) 
@@ -52,21 +51,25 @@ python aplication.py
 ~~~
 
 ## Aplicación en Docker
+
+La aplicación que se ha desarrollado sigue la arquitectura de servidor/cliente, en la que el cliente manda una imagen codificada en base64 mediante conexión HTTP al servidor (contenedor docker), que la procesa, realiza la detección de árboles y devuelve la imagen al cliente. 
+
+
 ### Servidor en Linux
 Será necesario tener instalado:
 * [Docker](https://www.docker.com/)
-* [Nvidea-Docker](https://github.com/NVIDIA/nvidia-docker). Aceleramiento por GPU.
+* [Nvidia-Docker](https://github.com/NVIDIA/nvidia-docker). Aceleramiento por GPU.
 ~~~
 docker run -it -p 8000:8000 --rm --gpus=all pasensio97/tree_detector_image python manage.py
 ~~~
 ### Servidor en Windows
-Nvidea-Docker no está disponible. Por lo que sólo se debe instalar:
+Nvidia-Docker no está disponible. Por lo que sólo se debe instalar:
 * [Docker](https://www.docker.com/)
 ~~~
 docker run -it -p 8000:8000 --rm pasensio97/tree_detector_image python manage.py
 ~~~
 ### Ejemplo de Cliente
-El ejeplo del cliente corresponde al script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor.
+Para mandar imágenes como cliente se utiliza el script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor. El script client.py admite dos argumentos de entrada: uno para indicar el directorio de la imagen de entrada(--input) y otro para indicar el directorio de la imagen de salida(--output). 
 ~~~
 python client.py --input img.png
 ~~~
