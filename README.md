@@ -53,7 +53,7 @@ Para ello, ha sido necesario realizar los siguientes pasos:
 - Pasar cada una de las imágenes de test por la red para obtener así los archivos con las detecciones realizadas.
 - Calcular métricas a partir de los archivos de ground truth y las detecciones. 
 
-La **curva Precicion - Recall** obtenida ha sido la siguiente:
+La curva **Precicion - Recall** obtenida ha sido la siguiente:
 <p align="center">
   <img src="./test/metrics/results_metrics/tree.png" width="550" class="center"> 
 </p>
@@ -73,3 +73,8 @@ A continuación se muestras varios ejemplos donde se comparan en una misma image
 <img src="./images/test_images/test_completa1_2.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_2.png"> 
 
 <img src="./images/test_images/test_completa1_5.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_5.png"> 
+
+Como puede comprobarse, **las detecciones realizadas por el modelo entrenado se aproximan bastante bien al ground truth**. Sin embargo, cuando hay varios árboles juntos las detecciones no son tan precisas, como puede verse en el segundo ejemplo anterior. 
+
+Cabe mencionar, que incluso para el ojo humano, es difícil determinar cuántos árboles hay de forma exacta en una imagen aérea, y más aún cuando hay varios árboles muy juntos.
+Aun así, la aplicación desarrollada consigue dar una buena estimación de la posición y del número de árboles que hay en una imagen aérea.
