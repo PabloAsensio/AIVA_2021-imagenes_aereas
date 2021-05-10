@@ -3,7 +3,9 @@ Tree Detector es un sistema de visión artificial que resolverá el problema de 
 
 A continuación se muestran ejemplos de lo que se obtiene a la salida de la aplicación cuando se le pasan imágenes aéreas:
 
-<img src="./test/metrics/results_test_images/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa4_2.png"> 
+<p align="center">
+  <img src="./test/metrics/results_test_images/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa4_2.png"> 
+</p>
 
 ## Docker para el Servidor
 ### Servidor en Linux
