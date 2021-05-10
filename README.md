@@ -54,4 +54,14 @@ Para ello, ha sido necesario realizar los siguientes pasos:
 - Calcular métricas a partir de los archivos de ground truth y las detecciones. 
 
 La **curva Precicion - Recall** obtenida ha sido la siguiente:
+
 <img src="./test/metrics/results_metrics/tree.png" width="550" class="center"> 
+
+Esta curva lo que expresa es como varían los valores de precisión y recall al ir variando el umbral de confianza (valor de IoU). Un detector ideal es aquel para el que la precisión se mantiene alta a medida que aumenta el recall, es decir, un detector que tenga pocos Falsos Positivos(FP) y pocos Falsos Negativos(FN). En nuestro caso, como se puede observar, **el valor de precisión va disminuyendo a medida que el valor de recall aumenta**, lo que implica que para que se detecten el mayor número de árboles posibles, el valor de falsos positivos aumentará.
+
+Por otro lado, el dato cuantitativo que refleja cómo de bueno es el detector de árboles desarrollado, viene dado por el valor de **Average Precision (AP)**, que representa el área bajo la curva Precision – Recall, que en este caso tiene un valor del **79,88%**.
+
+A continuación se muestras varios ejemplos donde se comparan en una misma imagen las bounding boxes de ground truth (árboles etiquetados manualmente) y las bounding boxes de los árboles detectados por el modelo.
+
+<img src="./images/test_images/test_completa3_6.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa3_6.png"> 
+
