@@ -2,11 +2,11 @@
 Tree Detector es un sistema de visión artificial que resolverá el problema de conteo de árboles, así como el de detectarlos y saber su radio desde imágenes aéreas. 
 
 <p align="center">
-  <img src="./images/test/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa4_2.png"> 
+  <img src="./images/test_images/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa4_2.png"> 
 </p>
 
 <p align="center">
-  <img src="./images/test/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa4_2.png"> 
+  <img src="./images/test_images/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa4_2.png"> 
 </p>
 
 ## Docker para el Servidor
