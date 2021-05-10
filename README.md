@@ -16,7 +16,7 @@ Para el entrenamiento de RetinaNet se elaboró un dataset a partir de imágenes 
 Para programar la aplicación se ha seguido una programación orientada a objetos, cuyas clases pueden encontrarse en el directorio ```./scr/```. El siguiente diagrama de secuencia de forma gráfica el funcionamiento de la apliación:
 
 <p align="center">
-  <img src="./uml/tree_detector/Imagenes_Diagramas/diagrama_de_secuencia_final2.png" width="550" class="center"> 
+  <img src="./uml/tree_detector/Imagenes_Diagramas/diagrama_de_secuencia_final2.png" width="1200" class="center"> 
 </p>
 
 
