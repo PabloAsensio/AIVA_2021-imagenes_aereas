@@ -1,21 +1,31 @@
 # Tree Detector
 Tree Detector es un sistema de visión artificial que resolverá el problema de conteo de árboles, así como el de detectarlos y saber su radio desde imágenes aéreas. 
 
-# Docker para el Servidor
-## Servidor en Linux
+A continuación se muestran ejemplos de lo que se obtiene a la salida de la aplicación cuando se le pasan imágenes aéreas:
+
+<p align="center">
+  <img src="./test/metrics/results_test_images/test_completa1_5.png" width="550" class="center"> 
+</p>
+
+<p align="center">
+  <img src="./test/metrics/results_test_images/test_completa4_2.png" width="550" class="center"> 
+</p>
+
+## Docker para el Servidor
+### Servidor en Linux
 Será necesario tener instalado:
 * [Docker](https://www.docker.com/)
 * [Nvidea-Docker](https://github.com/NVIDIA/nvidia-docker). Aceleramiento por GPU.
 ~~~
 docker run -it -p 8000:8000 --rm --gpus=all pasensio97/tree_detector_image python manage.py
 ~~~
-## Servidor en Windows
+### Servidor en Windows
 Nvidea-Docker no está disponible. Por lo que sólo se debe instalar:
 * [Docker](https://www.docker.com/)
 ~~~
 docker run -it -p 8000:8000 --rm pasensio97/tree_detector_image python manage.py
 ~~~
-## Ejemplo de Cliente
+### Ejemplo de Cliente
 El ejeplo del cliente corresponde al script ```client.py```. Allí se podrá encontrar de una forma detallada el envío de las imágenes al servidor.
 ~~~
 python client.py --input img.png
@@ -24,7 +34,7 @@ python client.py --input img.png
 python client.py --input input_image.png --output output_img.png
 ~~~
 
-# Instalación del Repositorio
+## Instalación del Repositorio
 El equipo donde se quiera ejecutar el programa debe contar con:
 * Python 3.6.x (comprobado en 3.6.13, posiblemente funcione en versiones posteriores)
 * CUDA 11.2
@@ -66,7 +76,7 @@ python setup.py build_ext --inplace
 python aplication.py
 ~~~
 
-# Rendimiento del sistema
+## Rendimiento del sistema
 Para evaluar el rendimiento de la aplicación desarrollada se han calculado métricas, en particular la curva **Precision–Recall** y el valor de **Average Precision (AP)**, que son las métricas más populares que se utilizan para evaluar los modelos de detección de objetos. En concreto, se han utilizado las métricas que se utilizan en la conocida competición Pascal VOC, implementada en este [repositorio](https://github.com/rafaelpadilla/Object-Detection-Metrics).
 Para ello, ha sido necesario realizar los siguientes pasos:
 - Elaborar un conjunto de imágenes de test (no ‘vistas’ anteriormente por la red).
