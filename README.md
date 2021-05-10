@@ -64,6 +64,10 @@ Por otro lado, el dato cuantitativo que refleja cómo de bueno es el detector de
 
 A continuación se muestras varios ejemplos donde se comparan en una misma imagen las bounding boxes de ground truth (árboles etiquetados manualmente) y las bounding boxes de los árboles detectados por el modelo.
 
+<p align="center">
+  <img src="./test/metrics/results_test_images_and_gt/legend.PNG" width="550" class="center"> 
+</p>
+
 <img src="./images/test_images/test_completa3_6.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa3_6.png"> 
 
 <img src="./images/test_images/test_completa1_2.png"> <img src="./test/metrics/results_test_images_and_gt/test_completa1_2.png"> 
