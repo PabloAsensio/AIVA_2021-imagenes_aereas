@@ -9,12 +9,14 @@ Tree Detector es un sistema de visión artificial que resolverá el problema de 
   <img src="./images/test_images/test_completa1_5.png">   <img src="./test/metrics/results_test_images/test_completa1_5.png"> 
 </p>
 
+#
+
 ## Instalación del Repositorio
 El equipo donde se quiera ejecutar el programa debe contar con:
 * Python 3.6.x (comprobado en 3.6.13, posiblemente funcione en versiones posteriores)
 * CUDA 11.2
 * cuDNN v8.1.0 (January 26th, 2021), for CUDA 11.0, 11.1 and 11.2
-* Cuda Compilation tool 10.1
+
 Los pasos a seguir para la ejecución del programa son los siguientes:
 
 **1.** Clonar este repositorio.
