@@ -125,7 +125,7 @@ La curva **Precicion - Recall** obtenida ha sido la siguiente:
   <img src="./test/metrics/results_metrics/tree.png" width="550" class="center">
 </p>
 
-Esta curva lo que expresa es como varían los valores de precisión y recall al ir variando el umbral de confianza (valor de IoU). Un detector ideal es aquel para el que la precisión se mantiene alta a medida que aumenta el recall, es decir, un detector que tenga pocos Falsos Positivos(FP) y pocos Falsos Negativos(FN). En nuestro caso, como se puede observar, **el valor de precisión va disminuyendo a medida que el valor de recall aumenta**, lo que implica que para que se detecten el mayor número de árboles posibles, el valor de falsos positivos aumentará.
+Esta curva lo que expresa es como varían los valores de precisión y recall al ir variando el umbral de confianza. Un detector ideal es aquel para el que la precisión se mantiene alta a medida que aumenta el recall, es decir, un detector que tenga pocos Falsos Positivos(FP) y pocos Falsos Negativos(FN). En nuestro caso, como se puede observar, **el valor de precisión va disminuyendo a medida que el valor de recall aumenta**, lo que implica que para que se detecten el mayor número de árboles posibles, el valor de falsos positivos aumentará.
 
 Por otro lado, el dato cuantitativo que refleja cómo de bueno es el detector de árboles desarrollado, viene dado por el valor de **Average Precision (AP)**, que representa el área bajo la curva Precision – Recall, que en este caso tiene un valor del **79,88%**.
 
